@@ -2,12 +2,15 @@ package ru.netology
 
 fun main() {
 
-    val feeRate: Float = 0.75F / 100
-    val minFee: Int = 35_00
-    val amount: Int = 5_250_00
-    val fee: Int = if (amount * feeRate > minFee) (amount * feeRate).toInt() else minFee
+    val likes: Int = 1101
 
-    println("Комиссия составила ${fee / 100} руб. ${fee % 100} коп.")
+    // если последняя цифра 1, но не 11, то "человеку"
+    // если 0
+    if (likes < 1) {
+        println("У Вас нет лайков")
+    } else {
+        println("Понравилось ${if (likes % 10 == 1 && likes % 100 != 11) "$likes человеку" else "$likes людям"}")
+    }
 
 
 }
